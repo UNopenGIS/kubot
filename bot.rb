@@ -14,7 +14,7 @@ bot.ready {
 bot.message {|e|
   unless e.author.bot_account?
     if e.content.include?(bot.profile.mention)
-      m = "#{$bot_name}: "
+      m = "#{$bot_name}/#{`hostname -s`}: "
       m += `ipfs stats bw`.to_s.sub("Bandwidth\n", "").gsub("\n", " ").chomp
       e.respond(m)
     end
